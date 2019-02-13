@@ -7,6 +7,7 @@ namespace LIB\BuildingAction;
  * @package LIB\BuildingAction
  */
 trait BuildingActions {
+
     /**
      *
      */

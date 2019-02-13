@@ -10,7 +10,9 @@ use Building\House;
  * Class Play
  * @package Game
  */
-class Play {
+class Play
+{
+
     /**
      * @var array
      */
@@ -22,16 +24,17 @@ class Play {
      * @param int $houseCount
      * @param int $farmCount
      */
-    public function __construct($castleCount = 1, $houseCount =2, $farmCount = 3)
+    public function __construct ($castleCount = 1, $houseCount = 4, $farmCount = 4)
     {
-        $this->buildCity($houseCount);
+        $this->buildCity($castleCount, $houseCount, $farmCount);
     }
 
     /**
      * @param int $repeat
      */
-    public function attack ($repeat = 1) {
-        for ($i=0; $i < $repeat; $i++) {
+    public function attack ($repeat = 1)
+    {
+        for ($i = 0; $i < $repeat; $i++) {
             $building = $this->buildings[array_rand($this->buildings)];
             $building->hit();
         }
@@ -40,13 +43,13 @@ class Play {
     /**
      * @param $houseCount
      */
-    protected function buildCity($houseCount)
+    protected function buildCity ($castleCount, $houseCount, $farmCount)
     {
-        $this->buildings[] = new Castle();
+        $this->buildings[] = $castleCount ? new Castle() : null;
         for ($i = 0; $i < $houseCount; $i++) {
             $this->buildings[] = new House();
         }
-        for ($i = 0; $i < $houseCount; $i++) {
+        for ($i = 0; $i < $farmCount; $i++) {
             $this->buildings[] = new Farm();
         }
     }
@@ -54,7 +57,7 @@ class Play {
     /**
      * @return array
      */
-    public function getBuildings()
+    public function getBuildings ()
     {
         return $this->buildings;
     }

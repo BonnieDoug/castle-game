@@ -1,6 +1,5 @@
 <?php
-
-require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Game\Play;
 use Silex\Application;
@@ -17,11 +16,13 @@ $play = new Play();
 $play->attack();
 
 
-// example route
-$app->get('/test', function () {
-    $response = new Response('test route');
-    return $response;
-});
+//// example route
+//$app->get('/test', function () {
+//    $response = new Response('test route');
+//    return $response;
+//});
 
 
 $app->run();
+var_dump($play);
+die;

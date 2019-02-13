@@ -1,6 +1,6 @@
-#GAME MANAGER
+# GAME MANAGER
 
-###THE GAME 
+### THE GAME 
 
 There are three types of buildings in this game:
 
@@ -28,19 +28,19 @@ There are three types of buildings in this game:
     - The result of each attack need to be displayed. (which building it hit/ missed)
     - When all the buildings destroyed, a success message is shown.
 
-###INSTRUCTIONS 
+### INSTRUCTIONS 
 
 The foundations of the game have been done for you, albeit with one or two errors for 
 you to find ;) Using session management to store the state, and routing to manage the game, 
 the objective is to create a game manager that lets you start new games, view the status 
 of your games, and launch an attack on an existing game that has not finished.
 
-###USEFUL RESOURCES
+### USEFUL RESOURCES
 
 http://symfony.com/doc/current/components/http_foundation/sessions.html
 https://silex.symfony.com/doc/2.0/usage.html
 
-###QUESTIONS
+### QUESTIONS
 
 - Pretend that the content of the libraries folder is libraries that you created and 
 would pull in as vendors. think about what the potential problems you should expect 
@@ -50,15 +50,20 @@ when using "LIB\BuildingAction\BuildingActions" briefly explain the issue and pr
 - If you wanted to host this online how would you make the application more secure just 
 by changing one thing in the file structure
 
-###ANSWERS
+### ANSWERS
 
 Please submit any answers to questions here 
 
-###BONUS POINTS
+1. `LIB\` isn't an specific enough name to guarantee there will never be a namespace clash with other vendors. Should use something more unique such as `Sport80\` 
+
+2. The FrontController `test.php` (now index.php) is in the public root of the application, this allows all vendor & other source files to be accessible. I would (have) created a public directory to contain all public assets + front controller. Removing direct access to the source files. 
+   In the real world I would have used the server's vitual host files to set the public directory to `public/` for this test I have simply used a .htaccess for the same result.
+
+### BONUS POINTS
 
 - Add a Dockerfile that allows us to run the application with just one docker command
 
-###SUBMITTING RESULTS 
+### SUBMITTING RESULTS 
 
 Create a git archive of the project and send that to us as your solution with only the 
 necessary files in it.
