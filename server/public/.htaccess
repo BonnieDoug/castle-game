@@ -10,5 +10,5 @@ DirectoryIndex index.php
     RewriteRule ^ - [END]
 
     # Push all other requests to the front controller.
-    RewriteRule ^ index.php [L]
+    RewriteRule ^ %{ENV:BASE}/index.php [L]
 </IfModule>

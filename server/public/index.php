@@ -11,15 +11,16 @@ use Game\Play;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 $app = new Application();
 
 $app->register(new \Silex\Provider\SerializerServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__ . '/../views',
-));
+//$app->register(new Silex\Provider\TwigServiceProvider(), array(
+//    'twig.path' => __DIR__ . '/../views',
+//));
 
 
 $app['debug'] = true;
@@ -38,7 +39,7 @@ $app->post('/game/{id}', function ($id) use ($app) {
     $games[$id] = $game;
     $app['session']->set('games', $games);
 
-    return new Response($play, 200, array(
+    return new JsonResponse($play, 200, array(
         "Content-Type" => 'json'
     ));
 
@@ -70,27 +71,17 @@ $app->get('/game/{id}', function ($id) use ($app) {
 
     $game = $app['serializer']->deserialize($games[$id], Play::class, 'json');
 
-    return new Response($game, 200, array(
+    return new JsonResponse($game, 200, array(
         "Content-Type" => 'json'
     ));
-
-    return $app['twig']->render('play.html.twig', array(
-        'id' => $id,
-        'play' => $game
-    ));
-
 });
 
 $app->get('/game', function () use ($app) {
 
     $games = $app['session']->get('games');
 
-    return new Response($games, 200, array(
+    return new JsonResponse($games, 200, array(
         "Content-Type" => 'json'
-    ));
-
-    return $app['twig']->render('index.html.twig', array(
-        'games' => $games,
     ));
 
 });

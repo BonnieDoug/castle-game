@@ -1,3 +1,5 @@
+// require('dotenv').config()
+
 const pkg = require('./package')
 
 
@@ -57,7 +59,8 @@ module.exports = {
   ** Axios module configuration
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    baseURL: process.env.GAME_API || 'http://cg.localhost',
+    browserBaseURL: process.env.GAME_API || 'http://cg.localhost'
   },
 
   /*
@@ -71,12 +74,12 @@ module.exports = {
         import: ["~assets/style/variables.styl"]
       }
     },
-    
+
     /*
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+
     }
   }
 }
