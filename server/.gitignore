@@ -1,0 +1,8 @@
+vendor
+vendor/
+/vendor/
+.idea/
+/.idea/
+node_modules
+/node_modules
+/node_modules/

@@ -1,0 +1,19 @@
+
+<a href="/game/new">Start new game</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Game ID</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+{%  for key, game in games %}
+    <tr>
+        <td>{{ key }}</td>
+        <td><a href="/game/{{ key }}">Resume Game</a></td>
+    </tr>
+{%  endfor %}
+    </tbody>
+</table>
