@@ -1,5 +1,4 @@
 <?php
-
 // Error reporting on
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -18,10 +17,16 @@ $app = new Application();
 $app->register(new \Silex\Provider\SerializerServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 
+$app->after(function (Request $request, Response $response) {
+    $response->headers->set('Access-Control-Allow-Origin', 'http://localhost:44415');
+    $response->headers->set('Access-Control-Allow-Credentials', 'true');
+});
+
+
 //$app->register(new Silex\Provider\TwigServiceProvider(), array(
 //    'twig.path' => __DIR__ . '/../views',
 //));
-
+// $app['session']->clear();
 
 $app['debug'] = true;
 
@@ -37,6 +42,7 @@ $app->post('/game/{id}', function ($id) use ($app) {
 
     $game = $app['serializer']->serialize($play, 'json');
     $games[$id] = $game;
+
     $app['session']->set('games', $games);
 
     return new JsonResponse($play, 200, array(
@@ -52,13 +58,14 @@ $app->post('/game/{id}', function ($id) use ($app) {
 
 $app->get('/game/new', function () use ($app) {
 
+
     $play = new Play();
     $game = $app['serializer']->serialize($play, 'json');
 
     $games = $app['session']->get('games');
     $games[uniqid()] = $game;
     $app['session']->set('games', $games);
-
+    var_dump($app['session']->get('games', $games));
     return new Response($game, 200, array(
         "Content-Type" => 'json'
     ));

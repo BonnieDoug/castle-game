@@ -27,14 +27,18 @@ export const getters = {
   }
 }
 export const actions = {
-  async FETCH_GAMES ({commit}) {
+  async fetchGames ({commit}) {
     state.loading = true
-    let {data} = await this.$axios.get(`/game`)
+    let {data} = await this.$axios.get(`/game`, {
+      withCredentials: true,
+    })
     commit('SET_GAMES', data)
     state.loading = false
   },
-  async create () {
-    let {data} = await this.$axios.get(`/game/new`)
+  async create ({commit}) {
+    let {data} = await this.$axios.get(`/game/new`, {
+      credentials: true
+    })
     commit('SET_GAME', data)
   }
 }

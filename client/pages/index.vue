@@ -12,6 +12,7 @@
             <v-card>
                 <v-card-text>
                     <v-btn @click="createGame">Create Game</v-btn>
+                    <v-btn @click="getGames">Get Games</v-btn>
                     <pre>{{ games }}</pre>
                 </v-card-text>
             </v-card>
@@ -37,6 +38,9 @@
     methods: {
       createGame () {
         this.$store.dispatch('play/create')
+      },
+      getGames () {
+        this.$store.dispatch('play/fetchGames')
       }
     }
   }
