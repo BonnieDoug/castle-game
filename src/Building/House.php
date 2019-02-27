@@ -9,16 +9,26 @@ use LIB\BuildingAction\BuildingActions;
  * Class House
  * @package Building
  */
-class House
+class House extends BaseBuilding
 {
-    use BuildingActions;
 
     /**
      * @var int
      */
-    private $health = 75;
+    protected $health = 75;
+
     /**
      * @var int
      */
-    private $damage = 20;
+    protected $maxHealth = 75;
+    /**
+     * @var int
+     */
+    protected $damage = 20;
+
+    /**
+     * @var string
+     */
+    protected $name = 'House';
+
 }

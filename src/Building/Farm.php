@@ -9,17 +9,26 @@ use LIB\BuildingAction\BuildingActions;
  * Class Farm
  * @package Building
  */
-class Farm
+class Farm extends BaseBuilding
 {
-    use BuildingActions;
 
     /**
      * @var int
      */
-    private $health = 50;
+    protected $health = 50;
+
     /**
      * @var int
      */
-    private $damage = 25;
+    protected $maxHealth = 50;
+    /**
+     * @var int
+     */
+    protected $damage = 25;
+
+    /**
+     * @var string
+     */
+    protected $name = 'Farm';
 
 }

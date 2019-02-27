@@ -1,0 +1,14 @@
+# Use the front controller as index file.
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # If the requested filename exists, serve it.
+    # We only want to let Apache serve files and not directories.
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [END]
+
+    # Push all other requests to the front controller.
+    RewriteRule ^ %{ENV:BASE}/index.php [L]
+</IfModule>
