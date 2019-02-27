@@ -61,47 +61,22 @@ Please submit any answers to questions here
 2. The FrontController `test.php` (now index.php) is in the public root of the application, this allows all vendor & other source files to be accessible. I would (have) created a public directory to contain all public assets + front controller. Removing direct access to the source files. 
    In the real world I would have used the server's vitual host files to set the public directory to `public/` for this test I have simply used a .htaccess for the same result.
 
-### BONUS POINTS
+### BONUS POINTS - Started but incomplete.
 
 - Add a Dockerfile that allows us to run the application with just one docker command
 
 - Docker
 - - `sudo docker build   --file .docker/Dockerfile   -t castle-game .`
 - - Build & Run: `docker-compose up --build`
+
+### Run project without Docker
+
+1. Git clone this repository.
+2. Run `composer install` to install the dependencies.
+3. Serve the `/dist` folder as document root and navigate to http://[localhost?]/index.html
+
 ### SUBMITTING RESULTS 
 
 Create a git archive of the project and send that to us as your solution with only the 
 necessary files in it.
- 
-
-
-# my-app
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
