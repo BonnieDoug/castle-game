@@ -1,9 +1,11 @@
-## Menu
+## Sorted
+The following points are sorted in my local env, should be able to push with no issue. Couple of questions at the bottom.
+### Menu
 - [x] 2018 Highlights p2-3
 - [x] Business Model p12-13
 - [x] Business Strategy p14-16
 
-## Board
+### Board
 - [x] David p26 *
 - [x] Bob p26 *
 - [x] Erik p26 *
@@ -11,18 +13,18 @@
 - [x] Karl p27 *
 - [x] DR p27 *
 
-## Reports and Pres
+### Reports and Pres
 - [x] Table -> add -> AR18 PDF to 2018 *
 
-## Stock / Shareholders
+### Stock / Shareholders
 - [x] Shareholders Text update *
 - [x] Shareholder table *
 
-## Annual Report
+### Annual Report
 - [x] AR18 Cover *
 - [x] AR18 PDF *
 
-## About Us
+### About Us
 - [x] Our Story - Updated to include paragraphs 1, 2 & 3 of "Our People" page
 - [x] David
 - [x] Erik
@@ -36,7 +38,7 @@
 - [x] Larry
 - [x] Daud
 
-Corporate Governance
+### Corporate Governance
 - [x] Content from Report inc
 	- [x] Pie Charts
 	- [x] Timeline
